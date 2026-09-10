@@ -188,10 +188,11 @@
   }
   .hero-stage-content .caption .num{
     font-family:'DM Serif Display',serif;
-    font-size:5rem;line-height:.85;color:var(--branco);
+    font-size:4.5rem;line-height:.85;color:var(--branco);
     display:inline-block;margin-right:14px;
     vertical-align:middle;
   }
+  .caption-sub,.caption-txt{display:none}
   .hero-stage-content .caption h3{
     display:inline-block;vertical-align:middle;
     color:var(--branco);font-size:1.4rem;
@@ -471,11 +472,13 @@
 
   /* STATUS BADGE */
   .status-badge{
-    display:inline-flex;align-items:center;gap:6px;
+    display:flex;align-items:center;justify-content:center;gap:6px;
     padding:6px 12px;border-radius:100px;
     font-size:.65rem;font-weight:700;letter-spacing:1px;
     text-transform:uppercase;
     background:var(--cinza-bg);color:var(--cinza);
+    margin-left:auto;
+    text-align:center;
   }
   .status-badge .pulse{
     width:6px;height:6px;border-radius:50%;
@@ -531,6 +534,13 @@
     .foot-wrap{grid-template-columns:1fr 1fr;gap:24px}
     .btn{width:100%;justify-content:center}
   }
+@media (max-width:666px){
+    .status-badge{max-width:none;width:100%;margin:0 auto;text-align:center}
+    #statusText,#statusText2{text-align:center;width:100%}
+  }
+  @media (max-width:900px){
+    .caption .num{margin-top:20%}
+  }
   @media (max-width:520px){
     .cats,.automacao-grid,.depo{grid-template-columns:1fr}
     .foot-wrap{grid-template-columns:1fr}
@@ -544,6 +554,9 @@
     .hero-stage-content .caption .num{font-size:3.75rem}
     .section-intro{margin-bottom:40px}
     section{padding:70px 22px}
+    .status-badge{max-width:none;width:100%;margin:0 auto;text-align:center}
+    .status-badge .pulse{display:none}
+    #statusText,#statusText2{text-align:center;width:100%}
   }
   @media (max-width:480px){
     .status-badge{font-size:.55rem;padding:5px 10px;gap:4px}
@@ -618,8 +631,8 @@
     <div class="photo-bg"></div>
     <div class="hero-stage-content">
       <div class="caption">
-        <span class="num">Fundada em<br><span style="font-size:3.5rem;display:block;line-height:1">1970</span></span><h3>atendendo a região.</h3>
-        <p>Três gerações da família Maaz no mesmo balcão — agora na moderna sede da Rua Ivo Rodrigues.</p>
+        <span class="num">Fundada em<br><span style="font-size:3.5rem;display:block;line-height:1">1970</span></span><h3 class="caption-sub">atendendo a região.</h3>
+        <p class="caption-txt">Três gerações da família Maaz no mesmo balcão — agora na moderna sede da Rua Ivo Rodrigues.</p>
       </div>
       <div class="hero-cards">
         <div class="hero-card-mini">

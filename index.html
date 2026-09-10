@@ -236,7 +236,7 @@
     position:relative;
   }
   .pillar:last-child{border-right:none}
-  .pillar:hover{background:var(--vermelho-escuro)}
+  .pillar:hover{background:transparent}
   .pillar .icon{
     width:46px;height:46px;
     background:var(--vermelho-vivo);color:var(--branco);
@@ -254,6 +254,7 @@
 
   /* SEÇÕES */
   section{padding:100px 36px;max-width:1140px;margin:0 auto}
+  .section-gap{margin-top:40px}
   .eyebrow{
     display:inline-flex;align-items:center;gap:10px;
     font-size:.78rem;letter-spacing:2px;text-transform:uppercase;
@@ -358,7 +359,7 @@
 
   /* DEPOIMENTOS */
   .depo{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .stars-google{letter-spacing:3px;margin-bottom:2px;font-size:1.3rem;color:#FBBC05}
+  .stars-google{letter-spacing:3px;margin:0 0 2px 5px;font-size:1.3rem;color:#FBBC05}
   .depo-card{
     background:var(--cinza-bg);
     border-radius:20px;
@@ -373,10 +374,9 @@
   }
   .depo-card p{
     font-size:1rem;color:var(--preto);
-    font-style:italic;margin:8px 0 14px;line-height:1.55;
+    font-style:italic;margin:8px 0 14px 5px;line-height:1.55;
   }
-  .depo-card .who{font-weight:700;color:var(--vermelho-escuro);font-size:.88rem}
-  .depo-card .who small{display:block;font-weight:400;color:var(--cinza);margin-top:2px}
+  .depo-card .who{font-weight:700;color:var(--vermelho-escuro);font-size:.88rem;margin-left:5px}
 
   /* CONTATO */
   .contact{
@@ -467,14 +467,14 @@
 
   /* STATUS BADGE */
   .status-badge{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:8px 14px;border-radius:100px;
-    font-size:.78rem;font-weight:700;letter-spacing:1px;
+    display:inline-flex;align-items:center;gap:6px;
+    padding:6px 12px;border-radius:100px;
+    font-size:.65rem;font-weight:700;letter-spacing:1px;
     text-transform:uppercase;
     background:var(--cinza-bg);color:var(--cinza);
   }
   .status-badge .pulse{
-    width:8px;height:8px;border-radius:50%;
+    width:6px;height:6px;border-radius:50%;
     background:var(--cinza);
     position:relative;
   }
@@ -500,37 +500,54 @@
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease}
   .reveal.in{opacity:1;transform:none}
 
-  /* RESPONSIVE */
+/* RESPONSIVE */
   @media (max-width:900px){
     .nav{padding:14px 22px}
     .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--off);padding:20px;gap:16px;border-bottom:1px solid rgba(21,23,35,.1)}
     .nav-links.open{display:flex}
     .menu-btn{display:block}
-.hero{padding:120px 22px 0}
+    .hero{padding:120px 22px 0}
     .hero-top{grid-template-columns:1fr;gap:30px}
     .hero-polaroids{display:flex;flex-direction:column;gap:14px;height:auto}
     .polaroid{position:relative;width:100%!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;transform:none!important;max-width:340px;margin:0 auto}
     .polaroid.p1 .pol-img,.polaroid.p2 .pol-img,.polaroid.p3 .pol-img{height:180px}
-    .hero-stage{width:calc(100% + 44px);margin:0 -22px;height:auto}
+    .hero-stage{width:100%;margin:0;height:auto}
     .hero-stage-content{grid-template-columns:1fr;padding:30px 28px;gap:20px;align-items:start}
     .hero-stage-content .caption{padding-bottom:0}
     .hero-cards{align-items:flex-start}
     .hero-stage::before{height:40px}
-    .status-badge{padding:6px 12px;font-size:.7rem}
-    .status-badge #statusText{font-size:.7rem}
     .pillars{grid-template-columns:1fr 1fr}
     .pillar{border-right:none;border-bottom:1px solid rgba(140,140,140,.18)}
-    .cats,.services,.depo{grid-template-columns:1fr 1fr}
+    .cats,.automacao-grid,.depo{grid-template-columns:1fr 1fr}
     .story,.contact{grid-template-columns:1fr}
     .story-img{max-width:420px;margin:0 auto;width:100%}
     .contact-info{padding:36px 28px}
-    .contact-map{min-height:280px}
+    .contact-map{min-height:300px}
     .field-row{grid-template-columns:1fr}
     .foot-wrap{grid-template-columns:1fr 1fr;gap:24px}
+    .btn{width:100%;justify-content:center}
   }
   @media (max-width:520px){
-    .cats,.services,.depo{grid-template-columns:1fr}
+    .cats,.automacao-grid,.depo{grid-template-columns:1fr}
     .foot-wrap{grid-template-columns:1fr}
+    .hero h1{font-size:2.5rem}
+    .hero-stage-content{padding:24px 20px}
+    .contact-info{padding:28px 20px}
+    .section-title{font-size:1.8rem}
+    .hero .lead{font-size:1rem}
+    .pillars{grid-template-columns:1fr}
+    .contact-map{min-height:250px}
+    .hero-stage-content .caption .num{font-size:3.75rem}
+    .section-intro{margin-bottom:40px}
+    section{padding:70px 22px}
+  }
+  @media (max-width:480px){
+    .status-badge{font-size:.55rem;padding:5px 10px;gap:4px}
+    .status-badge .pulse{width:5px;height:5px}
+  }
+  @media (max-width:400px){
+    .status-badge{font-size:.5rem;padding:4px 8px;gap:3px}
+    .status-badge .pulse{width:4px;height:4px}
   }
 </style>
 </head>
@@ -572,7 +589,7 @@
       <h1>A <em>casa</em> do construtor<br/>há mais de 50 anos.</h1>
       <p class="lead">Materiais de construção, hidráulica e elétrica selecionados com o cuidado de quem entende — com atendimento de gente da cidade que conhece você pelo nome.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/5519936415858" target="_blank" class="btn btn-primary">Pedir orçamento</a>
+        <a href="https://wa.me/5519998376039" target="_blank" class="btn btn-primary">Pedir orçamento</a>
         <a href="#automacao" class="btn btn-ghost">Ver serviços</a>
       </div>
     </div>
@@ -605,7 +622,7 @@
           <div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div>
             <div class="lbl">Ligue agora</div>
-            <div class="val">(19) 3641-5858</div>
+            <div class="val">+55 19 99837-6039</div>
           </div>
         </div>
         <div class="hero-card-mini">
@@ -693,7 +710,7 @@
 
   <div class="automacao-grid">
     <div class="auto-card reveal">
-      <div class="auto-img" style="background-image:url('img/paineis eletricos/WhatsApp Image 2026-09-04 at 10.25.39.jpeg')"></div>
+      <div class="auto-img" style="background-image:url('img/paineis eletricos/WhatsApp Image 2026-09-04 at 10.25.40 (2).jpeg')"></div>
       <h3>Indústria</h3>
       <p>Painéis de força e comando com CLP, IHM e rede industrial para linhas de produção e máquinas.</p>
       <div class="auto-tags">
@@ -704,7 +721,7 @@
       </div>
     </div>
     <div class="auto-card reveal">
-      <div class="auto-img" style="background-image:url('img/paineis eletricos/WhatsApp Image 2026-09-04 at 10.25.39 (1).jpeg')"></div>
+      <div class="auto-img" style="background-image:url('img/paineis eletricos/WhatsApp Image 2026-09-04 at 10.25.39 (2).jpeg')"></div>
       <h3>Piscinas</h3>
       <p>Automação completa: bombas, aquecimento, tratamento, iluminação e controle remoto via app.</p>
       <div class="auto-tags">
@@ -715,7 +732,7 @@
       </div>
     </div>
     <div class="auto-card reveal">
-      <div class="auto-img" style="background-image:url('img/paineis eletricos/WhatsApp Image 2026-09-04 at 10.25.39 (3).jpeg')"></div>
+      <div class="auto-img" style="background-image:url('img/paineis eletricos/WhatsApp Image 2026-09-04 at 10.25.40.jpeg')"></div>
       <h3>Usinas Fotovoltaicas</h3>
       <p>Quadros de string, combiner boxes, proteção DC/AC e integração com inversores e monitoramento.</p>
       <div class="auto-tags">
@@ -753,32 +770,32 @@
     <div class="depo-card reveal">
       <div class="stars-google">★★★★★</div>
       <p>Lugar completo com muita opção de compras.</p>
-      <div class="who">Juarez Oliveira <small>Local Guide</small></div>
+      <div class="who">Juarez Oliveira</div>
     </div>
     <div class="depo-card reveal">
       <div class="stars-google">★★★★★</div>
       <p>Loja super completa, atendimento impecável!</p>
-      <div class="who">Fernando Lopes <small>Local Guide</small></div>
+      <div class="who">Fernando Lopes</div>
     </div>
     <div class="depo-card reveal">
       <div class="stars-google">★★★★★</div>
       <p>Excelente</p>
-      <div class="who">Prime BR 360 <small>+8.400 fotos</small></div>
+      <div class="who">Prime BR 360</div>
     </div>
     <div class="depo-card reveal">
       <div class="stars-google">★★★★★</div>
       <p>uma loja completa</p>
-      <div class="who">Charles Santos <small>Local Guide</small></div>
+      <div class="who">Charles Santos</div>
     </div>
     <div class="depo-card reveal">
       <div class="stars-google">★★★★★</div>
       <p>Excelente</p>
-      <div class="who">Jose Adao Da Silva <small>cliente</small></div>
+      <div class="who">Jose Adao Da Silva</div>
     </div>
     <div class="depo-card reveal">
       <div class="stars-google">★★★★★</div>
       <p>Lugar completo, atendimento de primeira. Recomendo!</p>
-      <div class="who">Carlos Viana <small>Local Guide · 50 fotos</small></div>
+      <div class="who">Carlos Viana</div>
     </div>
   </div>
 
@@ -809,9 +826,7 @@
       <div class="info-row">
         <span class="lbl">Telefones</span>
         <div class="val">
-          <a href="tel:+551936415858">(19) 3641-5858</a>
-          <a href="tel:+551936414455">(19) 3641-4455</a>
-          <a href="tel:+551936416729">(19) 3641-6729</a>
+<a href="tel:+5519998376039">+55 19 99837-6039</a>
         </div>
       </div>
 
@@ -821,7 +836,7 @@
       </div>
 
       <div style="margin-top:32px">
-        <a href="https://wa.me/5519936415858" target="_blank" class="btn btn-primary">Falar pelo WhatsApp</a>
+        <a href="https://wa.me/5519998376039" target="_blank" class="btn btn-primary">Falar pelo WhatsApp</a>
       </div>
     </div>
 
@@ -857,8 +872,7 @@
       <ul>
         <li>Rua Ivo Rodrigues, 75</li>
         <li>Centro — VGS / SP</li>
-        <li>(19) 3641-5858</li>
-        <li>(19) 3641-4455</li>
+        <li>+55 19 99837-6039</li>
       </ul>
     </div>
   </div>
@@ -868,7 +882,7 @@
   </div>
 </footer>
 
-<a class="wa" href="https://wa.me/5519936415858" target="_blank" aria-label="WhatsApp">
+<a class="wa" href="https://wa.me/5519998376039" target="_blank" aria-label="WhatsApp">
   <svg viewBox="0 0 32 32"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.5 2.1 7.9L.3 31.6l7.9-2.1c2.3 1.3 5 2 7.8 2 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.5c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.7 1.2 1.3-4.6-.3-.5C3.7 20.7 3 18.4 3 16 3 8.8 8.8 3 16 3s13 5.8 13 13-5.8 12.9-13 12.9zm7.1-9.7c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.3 1.5-.2.3-.5.3-.9.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.6-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.6.1-.3.1-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.3 0-.7.1-1 .4-.4.4-1.3 1.3-1.3 3.2 0 1.9 1.4 3.7 1.5 4 .4.3 2.7 4.1 6.6 5.7.9.4 1.6.6 2.2.8.9.3 1.7.2 2.4.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.4-.3-.8-.5z"/></svg>
 </a>
 
@@ -924,13 +938,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
    ============================================ */
 (() => {
   const SCHEDULE = {
-    0: null,            // Domingo - fechado
-    1: {open: 8,  close: 18},  // Segunda
-    2: {open: 8,  close: 18},  // Terça
-    3: {open: 8,  close: 18},  // Quarta
-    4: {open: 8,  close: 18},  // Quinta
-    5: {open: 8,  close: 18},  // Sexta
-    6: {open: 8,  close: 12}   // Sábado
+    0: null,
+    1: {open: 8,  close: 18},
+    2: {open: 8,  close: 18},
+    3: {open: 8,  close: 18},
+    4: {open: 8,  close: 18},
+    5: {open: 8,  close: 18},
+    6: {open: 8,  close: 12}
   };
   const DAYS = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
 
@@ -941,7 +955,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
     const day = now.getDay();
     const h = now.getHours();
     const m = now.getMinutes();
-    const cur = h + m/60;
+    const s = now.getSeconds();
+    const cur = h + m/60 + s/3600;
     const sch = SCHEDULE[day];
     const badge = document.getElementById('statusBadge');
     const badge2 = document.getElementById('statusBadge2');
@@ -960,21 +975,25 @@ document.getElementById('year').textContent = new Date().getFullYear();
         const rest = closeH - cur;
         const rh = Math.floor(rest);
         const rm = Math.floor((rest - rh) * 60);
-        msg = `Aberto agora · fecha às ${pad(sch.close)}h`;
-        if(rm > 0 && rh > 0) msg += ` (em ${rh}h${pad(rm)})`;
+        const rs = Math.floor(((rest - rh) * 60 - rm) * 60);
+        msg = `Aberto - fecha em ${pad(rh)}:${pad(rm)}:${pad(rs)}`;
       } else if(cur < sch.open){
-        msg = `Fechado · abre às ${pad(sch.open)}h`;
+        const wait = sch.open - cur;
+        const wh = Math.floor(wait);
+        const wm = Math.floor((wait - wh) * 60);
+        const ws = Math.floor(((wait - wh) * 60 - wm) * 60);
+        msg = `Fechado - Abre em ${pad(wh)}:${pad(wm)}:${pad(ws)}`;
       } else {
-        msg = `Fechado · abriu ${pad(sch.open)}h-${pad(sch.close)}h`;
+        const nextOpen = DAYS[(day + 1) % 7] || 'amanhã';
+        msg = `Fechado - Abre ${nextOpen} às ${pad(sch.open)}:00:00`;
       }
     } else {
-      // dia fechado — procura próximo dia aberto
       for(let i=1; i<=7; i++){
         const nd = (day + i) % 7;
         if(SCHEDULE[nd]){
           nextDay = DAYS[nd];
           if(i === 1) nextDay = 'amanhã';
-          msg = `Fechado hoje · abre ${nextDay} às ${pad(SCHEDULE[nd].open)}h`;
+          msg = `Fechado - Abre ${nextDay} às ${pad(SCHEDULE[nd].open)}:00:00`;
           break;
         }
       }
@@ -989,7 +1008,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }
 
   update();
-  setInterval(update, 60000);
+  setInterval(update, 1000);
 })();
 
 const io = new IntersectionObserver(entries => {
